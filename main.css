@@ -200,12 +200,15 @@
 /* Projects grid and card styles */
 .projects-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    /* Use auto-fit so the grid will center more naturally and collapse gaps on large screens */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
     padding: 16px;
     max-width: 1200px;
-    margin: 0 auto 40px auto;
+    margin: 0 auto 40px auto; /* keeps the grid centered in the page */
     box-sizing: border-box;
+    justify-items: center; /* center each grid item horizontally inside its cell */
+    justify-content: center; /* center the whole grid track on very wide viewports */
 }
 
 .project-card {
@@ -218,6 +221,9 @@
     gap: 12px;
     transition: transform 0.18s ease, box-shadow 0.18s ease;
     overflow: hidden;
+    /* constrain card width so centering is predictable on large screens */
+    width: 100%;
+    max-width: 360px;
 }
 
 .project-card:hover {
